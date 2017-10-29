@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<title>test</title>
+
+</head>
+<body>
+<h1>aaaaaaaaaaaa</h1>
+
+</body>
+<script>
+//js对象:js内置对象，js事件对象，BOM浏览器对象，DOM文档对象
+
+
+//js内置对象
+//1.数学对象
+//属性：Math.PI //圆周率
+//alert(Math.PI);  //3.1415926....
+
+//方法
+//num=3.56;
+//alert(Math.round(num));//4//保留整数四舍五入
+//alert(Math.ceil(num));//4//天花板，往上接近整数
+//alert(Math.floor(num));//3//往下接近的整数
+//alert(Math.max(1,100,2,3));//100,几个数字中的最大值
+//alert(Math.min(1,100,2));//1,几个数字中的最小值
+
+//alert(Math.random());//0~1之间的随机数字，每刷新一次变一次
+//下面案例从数组中随机取个值。
+arr=['a','d','c','q','r','t'];
+rand=Math.random();
+tot=arr.length;
+sub=Math.floor(rand*tot);
+alert(arr[sub]);
+
+</script>
+</html>
