@@ -1,0 +1,125 @@
+js注释：
+//单行注释
+/**/多行注释
+//////////////////////////////////////////////////////////////////////////
+三种引入方式，跟css类似，内联，内部，外部
+///////////////////////////////////////
+///////定义变量
+	/*
+	username="我";
+	alert("my name is "+username);
+	document.write("<h1>my name is "+username+"</h1>");
+	*/
+//变量定义：username="我";
+//变量连字符串："my name is "+username;
+
+
+/////////////////////////////////////////
+//输出变量：
+//alert(str);
+//页面输出一段内容：document.write(str);
+/////////////////////////////////////
+
+///////////变量类型：
+//1.字符串
+
+//2.整型
+/*
+username=100;
+alert(username+5);//105 //正常计算
+alert(username+"5");//1005//运算中至少一个是字符串，结果都是字符串连接
+alert(username-"5");//95//减号只能运算，所以会强制转换
+*/
+//3.浮点型：就是小数
+
+//4.布尔：true , false
+
+//5.数组
+/*
+ps=Array("qww","qw3","12qw"); //Array 首字母必须大写
+alert(ps);
+ps1=new Array("qww","qw3","12qw");//Array 首字母必须大写
+alert(ps1);
+
+ps2=["qww","qw3","12qw"];
+alert(ps2);
+*/
+
+//6.对象三种
+
+//a.  js对象
+/*
+obj=new Object();//Object 首字母必须大写
+obj.username="user1";
+obj.age="20";
+obj.sex="nan";
+obj.say=function(){
+	alert("my name is user1");
+}
+document.write("<h1> my name is"+obj.username+"</h1>");
+obj.say();//调用
+*/
+//b.  dom对象
+//eleobj=document;
+
+//c.  jason对象
+/*
+jsobj={
+	'username':'user1',
+	'age':'20',
+	'sex':'nan',
+	'say':function(){//方法
+		alert(123456);
+	}
+};
+jsobj.say();//方法
+alert(jsobj.age);//属性
+*/
+
+
+//undifined
+//null   //str="null";初始化一个空值。或者写str="";
+
+//NaN //not a number
+/*
+str="10";//str="10abc";
+Number(str);//Number只能转数字字符串，带字母的转不了
+alert(Number(str)+5);//NaN
+*/
+//////////////////////////////////////////
+
+/*
+//函数定义方法：
+//传统方式
+function say(){
+	alert(1);
+}
+//匿名定义
+say=function(){
+	alert(1);
+}
+say();
+*/
+
+////////////////////////////////////////////
+
+//变量作用域：
+//1.全局变量:变量定义时前面没有var则全部都是全局变量
+str="user1";
+function say(){
+	alert(str);
+}
+say();
+
+function show(){
+	a="user2";
+}
+show();//先调用出再打印
+alert(a);//也可放到函数里面直接调用
+
+//2.局部变量：只有在函数内部前面带var的变量为局部变量，局部变量只能在函数内使用
+function show1(){
+	b="user3";	
+}
+show1();
+alert(b);
