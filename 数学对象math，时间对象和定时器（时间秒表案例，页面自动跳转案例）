@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+<head>
+<title>test</title>
+
+</head>
+<body>
+<h1>aaaaaaaaaaaa</h1>
+
+</body>
+<script>
+//js对象:js内置对象，js事件对象，BOM浏览器对象，DOM文档对象
+
+
+//js内置对象
+//1.数学对象
+//属性：Math.PI //圆周率
+//alert(Math.PI);  //3.1415926....
+
+//方法
+//num=3.56;
+//alert(Math.round(num));//4//保留整数四舍五入
+//alert(Math.ceil(num));//4//天花板，往上接近整数
+//alert(Math.floor(num));//3//往下接近的整数
+//alert(Math.max(1,100,2,3));//100,几个数字中的最大值
+//alert(Math.min(1,100,2));//1,几个数字中的最小值
+
+//alert(Math.random());//0~1之间的随机数字，每刷新一次变一次
+//下面案例从数组中随机取个值。
+arr=['a','d','c','q','r','t'];
+rand=Math.random();
+tot=arr.length;
+sub=Math.floor(rand*tot);
+alert(arr[sub]);
+
+</script>
+</html>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+<!doctype html>
+<html>
+<head>
+<title>test</title>
+<style>
+div{background:#000;text-align:center;width:200px;height:50px;border-radius:20px;margin:0 auto;}
+span{color:#fff;height:50px;line-height:50px;font-size:20px;}
+</style>
+</head>
+<body>
+<div>
+<span id="sid"></span>
+</div>
+<button id='kid'>开始</button>
+<button id='jid'>结束</button>
+<script>
+spanobj=document.getElementById('sid');
+but1obj=document.getElementById('kid');
+but2obj=document.getElementById('jid');
+
+function time(){
+	dobj=new Date();
+	hour=dobj.getHours();
+	if(hour<10){//为了单数时，0在前面，例如01,04；
+		hour='0'+hour;
+	}
+	mimute=dobj.getMinutes();
+	if(mimute<10){
+		mimute='0'+mimute;
+	}
+	second=dobj.getSeconds();
+	if(second<10){
+		second='0'+second;
+	}
+	spanobj.innerHTML=hour+':'+mimute+':'+second;//innerHTML改变标签内部的值
+}
+time();//先初始化当前的值，以免刷新时出现空白或者默认值
+sobj=setInterval(time,1000);//让定时器每隔一秒（1000毫秒）走一次
+
+but2obj.onclick=function(){//执行停止定时器事件
+	clearInterval(sobj);
+}
+but1obj.onclick=function(){//执行重新开始事件
+	setInterval(time,1000);
+}
+</script>
+
+</body>
+<script>
+//日期对象
+//1,生成对象，必须有这一步
+// dobj=new Date();
+
+//2.方法
+/*得到年月日，时分秒
+get FullYear();
+getMonth();
+getDate();
+getHours();
+getMinutes();
+getSeconds();
+*/
+//获取日期的例子：
+/*
+dobj=new Date();
+year=dobj.getFullYear();
+month=dobj.getMonth()+1;
+day=dobj.getDate();
+hour=dobj.getHours();
+minute=dobj.getMinutes();
+second=dobj.getSeconds();
+document.write(year+'-'+month+'-'+day+' '+hour+':'+minute+':'+second);
+*/
+
+
+//定时器：body里面有事例
+//1.定义
+//sobj=setInterval(function(){
+//每隔1秒执行一次代码段
+//},1000);
+
+//2.清除定时器
+//clearInterval(sobj);
+
+
+
+//超时器:只执行一次
+//1.定义
+//sobj=setTimeout(function(){
+
+//},1000)
+//2.清除
+//clearTimeout(sobj);
+
+
+/*
+s=3;
+alert(s++);//3//先赋值后运算
+alert(++s);//4//先运算后赋值
+*/
+
+</script>
+</html>
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+<!doctype html>
+<html>
+<head>
+<title>test</title>
+<style>
+div{background:#000;text-align:center;width:100%;height:50px;border-radius:20px;margin:0 auto;color:#fff;}
+span{color:#fff;height:50px;line-height:50px;font-size:20px;}
+</style>
+</head>
+<body>
+<div>
+提交成功，页面在<span id="sid">3</span>秒后自动跳转
+</div>
+<button id='jid'>结束</button>
+<script>
+sidobj=document.getElementById('sid');
+jidobj=document.getElementById('jid');
+/*
+i=3;
+sobj=setInterval(function(){
+	i--;
+	sidobj.innerHTML=i;
+	if(i==0){
+		//clearInterval(sobj);
+		location="http://www.baidu.com"; //跳转到window的地址栏,window对象可省略，window.location="http://www.baidu.com";
+	}
+},1000);
+*/	
+	
+//超时器例子，只能执行一次	
+/*	
+tobj=setTimeout(function(){
+	location="http://www.baidu.com";
+},3000);
+jidobj.onclick=function(){
+	clearTimeout(tobj);
+}
+*/	
+	
+</script>
+</body>
+<script>
+//js对象:js内置对象，js事件对象，BOM浏览器对象，DOM文档对象
+
+
+//日期对象
+//1,生成对象，必须有这一步
+// dobj=new Date();
+
+//2.方法
+/*得到年月日，时分秒
+get FullYear();
+getMonth();
+getDate();
+getHours();
+getMinutes();
+getSeconds();
+*/
+//获取日期的例子：
+/*
+dobj=new Date();
+year=dobj.getFullYear();
+month=dobj.getMonth()+1;
+day=dobj.getDate();
+hour=dobj.getHours();
+minute=dobj.getMinutes();
+second=dobj.getSeconds();
+document.write(year+'-'+month+'-'+day+' '+hour+':'+minute+':'+second);
+*/
+
+
+//定时器：body里面有事例
+//1.定义
+//sobj=setInterval(function(){
+//每隔1秒执行一次代码段
+//},1000);
+
+//2.清除定时器
+//clearInterval(sobj);
+
+
+
+//超时器:只执行一次
+//1.定义
+//sobj=setTimeout(function(){
+
+//},1000)
+//2.清除
+//clearTimeout(sobj);
+
+
+/*
+s=3;
+alert(s++);//3//先赋值后运算
+alert(++s);//4//先运算后赋值
+*/
+
+</script>
+</html>
+
+
