@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+<title>test</title>
+<style>
+
+</style>
+</head>
+<body>
+
+</body>
+<script>
+//字符串对象：
+//属性:length
+
+
+//方法:
+/*
+indexOf();//查某个段或字符(第一个此字符）第几个位置
+lastIndexOf();//查某个段或字符(最后一个此字符）第几个位置
+substr(1,5);//截取第1至5之间的字符
+slice(start,end); //  slice(1,3),从1截取到3，不包括3，字符串和数组都可使用，但在数组形式中再加个[0]变成字符串，下面例子有讲解
+split(reg); // 可用在正则表达式里面 split('.') 用.分割成数组，常跟slice()一块使用
+search(reg);//可用在正则表达式里面，查询某段字符的起始字符在第几个位置，跟indexOf()类似
+match(reg);//可用在正则表达式里面,匹配是否存在，下面例子有
+replace(reg,"str");//可用在正则表达式里面
+*/
+
+
+
+//str="/web/home/index.php";
+//alert(str.indexOf('/'));//0,   第一个斜线/在第0个位置
+//alert(str.lastIndexOf('/'));//9,  最后一个斜线/ 在第9个位置
+//alert(str.substr(1,3));//web,  从1开始截取三个字符，如果只写str.substr(1);表示截取第一个到最后的部分//:  web/home/index.php
+//alert(str.substr(1));//  web/home/index.php  表示截取第一个到最后的部分
+
+
+//dir=str.substr(0,str.lastIndexOf('/'));//   截取文件地址目录部分
+//alert(dir);//    /web/home
+
+//file=str.substr(str.lastIndexOf('/')+1);//   截取路径中的文件部分
+//alert(file);//index.php
+
+
+
+/*以下几行都是截取文件名的后缀部分
+//ext=str.substr(str.lastIndexOf('.')+1);// 截取文件名的后缀部分
+//alert(ext);//php
+
+arr=str.split('.');// 分隔开,用数组的形式
+//alert(arr);//  /web/home/index, php
+//alert(arr[arr.length-1]);//php    arr.length-1是数组中最后一个元素的下标值。此种方式也是截取文件名的后缀部分的方法。
+
+//alert(arr.pop());//php   arr.pop()找到数组中的最后一个元素，此种方式也可截取文件名的后缀部分。
+alert(arr.slice(arr.length-1));//php    但此时是数组形式的，下面是证明，arr.slice(arr.length-1)表示数组中的最后一个，slice(1,3)在数组中,从1截取到3，不包括3，如果只写slice(1)表示从第一个到最后一个，不包括最后一个
+alert(typeof(arr.slice(arr.length-1)));//object ,说明截取的还是数组。arr.slice(arr.length-1)[0],才表示的是我们需要的字符串
+alert(arr.slice(arr.length-1)[0]);//php  此时弹出的才是字符串的后缀
+
+alert(arr.slice(-1));//php   数组形式的，跟上面一样,arr.slice(-1)表示数组中最后一个，arr.slice(-1)[0]才是我们需要的字符串;
+
+*/
+
+
+/*
+//search(reg);//可用在正则表达式里面，查询某段字符的起始字符在第几个位置
+str1="/web/HOme/index.php";
+pos=str1.search(/home/i); //正则，i全名是ignore，忽略大小写
+alert(pos);//5 ，home的起始位置在第5个
+*/
+
+
+/*
+//match(reg);//找某个字段是否存在
+str2="/web/home/home/index.php";
+//arr=str2.match('home');//找到的是数组，但只能找到一个
+arr=str2.match(/home/g);//home,home，正则的形式找到所有home，数组的形式，g全名global，全部的。    arr=str2.match(/home/ig);跟i大小写忽略一块用，且匹配所有。
+alert(arr);
+*/
+
+
+/*
+//replace(reg,"str");//替换值
+str3="/web/home/HOME/index.php";
+//alert(str3.replace('HOME','home'));//web/home/home/index.php  返回值替换，原值不变
+alert(str3.replace(/HOME/ig,'edu'));//web/home/home/index.php   正则的形式，ig表示忽略大小写和全部替换
+*/
+
+
+
+
+//数组对象:
+//属性：
+//length
+
+
+//方法：
+/*
+join('/');//把数组连成字符串，通常括号里面写符号连接
+pop();//把数组最后一个值弹出，弹出后原数组元素少一个
+push();最后插入一个值，改变原值
+shift();//把数组第一个值弹出，弹出后原数组元素少一个
+unshift();//最前插入一个值，改变原值
+reverse();//翻转
+concat();//连接,合并
+slice(start,end);//从哪开始到哪结束，不包括最后一个
+sort(show);
+show(a,b){
+	return a-b;//正序
+	//return b-a;//倒序	
+}
+splice();
+*/
+
+
+/*
+arr=['linux','php','js'];
+str=arr.join('-');// 用-把数组元素连成字符串
+alert(str);//linux-php-js
+*/
+
+
+//pop();//弹出最后一个值
+/*
+arr1=['linux','php','js'];
+str=arr1.pop();
+//alert(arr1);//linux,php//说明把最后一个弹出后，原来的数组少了一个
+alert(str);//js// 弹出的值
+*/
+
+//shift();弹出数组第一个值，跟pop();用法一样
+
+
+
+
+//push();//从数组最后压个值
+/*
+arr2=['linux','php','js'];
+str=arr2.push('html5');
+alert(arr2);//linux,php,js,html5  最后插入一个值后，原值多了一个
+alert(str);// 4 ,原数组变成了4个元素
+*/
+
+//unshift//从数组最前压一个值，用法跟push一样
+
+
+
+
+//reverse();数组元素翻转
+/*
+arr=['linux','php','js','html5'];
+arr1=arr.reverse();
+alert(arr1);// html5,js,php,linux
+alert(arr);//
+*/
+
+
+
+//concat();连接数组
+/*
+arr=['linux','php'];
+arr1=['js','html5'];
+//arr2=arr.concat(arr1);//前后连接
+arr2=arr1.concat(arr);//后前连接
+alert(arr2);//
+*/
+
+
+
+//sort(show);//
+arr=[100,20,1,3,10000];
+
+
+
+
+</script>
+</html>
