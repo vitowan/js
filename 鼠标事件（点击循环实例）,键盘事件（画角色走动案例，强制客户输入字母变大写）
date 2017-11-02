@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<title>test6</title>
+<style>
+
+</style>
+</head>
+<body>
+<!-- 标签身上绑定事件，内联形式的js时，不用写function，可以直接写事件，用this找元素 -->
+<!--
+<img src="a.png" id="imgid" onclick="this.src="b.png";">
+-->
+
+<!--鼠标单击循环实例
+<img src="1.jpg" id="imgid">
+<script>
+	imgobj=document.getElementById('imgid');
+	i=0;//点一下，事件里面增加1
+	imgobj.onclick=function(){
+		if(i%2==0){
+			this.src='1.jpg';
+		}else{
+			this.src='2.jpg';
+		}
+		i++;//点击自增
+	}
+	
+</script>
+
+-->
+
+
+
+
+
+
+<!-- 键盘控制文档页面内动画角色走动
+<img src='1.jpg' id="imgid" style="position:absolute;" width='100px' height='100px'>
+<script>
+imgobj=document.getElementById('imgid');
+
+
+xs=0;
+xv=20;
+ys=0;
+yv=20;
+
+document.onkeydown=function(event){//在文档中点击
+	kc=event.keyCode;// 键盘码
+	document.title=kc; //文档标题换成键盘码
+	
+	switch(kc){
+		case 37:
+			xs-=xv;
+			imgobj.style.left=xs+'px';
+			break;
+		case 38:
+			ys-=yv;
+			imgobj.style.top=ys+'px';
+			break;
+		case 39:
+			xs+=xv;
+			imgobj.style.left=xs+'px';
+			break;
+		case 40:
+			ys+=yv;
+			imgobj.style.top=ys+'px';
+			break;
+		
+	}
+	
+}
+
+
+
+</script>
+-->
+
+
+
+
+<!--强制客户输入的小写字母变成大写字母
+<form>
+<p>账号：</p>
+<p><input type="text"></p>
+<p>密码：</p>
+<p><input type="text"></p>
+<p>验证码：</p>
+<p><input type="text" id="verify"></p>
+<p><input type="submit" value="ok"></p>
+
+</form>
+
+<script>
+vobj=document.getElementById('verify');
+vobj.onkeyup=function(){
+/*
+	val=this.value;
+	val2=val.toUpperCase();
+	this.value=val2;
+*/
+this.value=this.value.toUpperCase();
+}
+
+
+
+</script>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+<script>
+/* border-radius类似这样带横杠的，必须换成borderRadius*/
+
+
+
+//事件对象：
+//1.标签绑定事件
+//2.js事件
+
+
+//鼠标事件
+/*
+onclick：单击事件
+ondblclick：双击事件
+onmouseenter:鼠标移入事件
+onmouseleave:鼠标移开事件
+onmousemove:移动或抚摸事件，动一下就触发下事件
+*/
+
+//document.title="";//改文档title
+
+
+
+//键盘事件：
+/*
+onkeydown： 键盘下按事件   body有例子
+onkeyup：  键盘弹起事件  body有例子
+onkeypress:
+
+*/
+
+
+
+
+</script>
+</html>
