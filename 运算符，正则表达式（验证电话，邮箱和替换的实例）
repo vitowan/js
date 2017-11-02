@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<title>test</title>
+<style>
+h2:hover{background:#ff0;}
+</style>
+</head>
+<body>
+<script>
+//隔行换色例子
+/*
+	for(i=0;i<10;i++){
+		if(i%2==1){
+			document.write('<h2>'+i+'</h2>');
+		}else{
+			document.write('<h2 style="background:#ccc;">'+i+'</h2>');
+		}
+		
+	}
+*/
+</script>
+
+</body>
+<script>
+
+//运算符：
+// 1.数学运算符
+//  +,-,*,/,%
+
+//2.比较运算符
+//  >,<,==,!=,>=,<=
+
+//逻辑运算符
+// &&(并且),||(或者),！(否)
+/*
+&&和||是短路运算符，&和|是非短路运算符
+&&与&
+区别：两者都表示“与”运算，但是&&运算符第一个表达式不成立的话，后面的表达式不运算，直接返回。而&对所有表达式都得判断。
+|| 与|
+区别：两者都表示“或”运算，但是||运算符第一个表达式成立的话，后面的表达式不运算，直接返回。而|对所有表达式都得判断。
+*/
+
+
+
+
+
+
+//正则表达式：
+//1.修饰词：i g m
+/*
+str='linux and php,LINUX and PHp';
+arr=str.match(/linux/ig);// 忽略大小写，所有的
+alert(arr);
+*/
+
+//m可以把\n 识别为多行
+
+//2,方括号
+/*
+str='linux and php,LINUX and linuxx and PHp 2,3,20'，P2P;
+arr=str.match(/lin[ux]x/ig);//  []方括号的意思是体内的任意一个匹配都可以
+//arr=str.match(/lin[^ux]x/ig);// ^在方括号内表示，不是ux的任意字符，也可以是空格，但不能少一个位置，此时弹出的结果是null没有
+//arr=str.match(/[0-9]/ig); //[0-9]表示匹配0-9的任意一个字符，结果是2,3,2,0
+//arr=str.match(/p[a-z]p/ig);//[a-z]表示匹配小写字母a-z中字母的任意一个值，[A-Z]匹配大写，[A-z]大小写都匹配
+//arr=str.match(/(p[a-z]p)|(lin[a-z]x)/ig);// ()或() 匹配出来，这是()用法
+alert(arr);//linux,LINUX,linuxx
+*/
+
+
+//3.元字符
+/*
+str='linux and php LINUX and linuxx and PHp 2 3 20 p2p p-p pp pp';
+//arr=str.match(/p\wp/ig);// \w 表示任意一个字母，数字或下划线
+//arr=str.match(/p\Wp/ig);//  \W 表示非数字，字母，下划线的，可以没有字符和空格额，例如pp也被选中
+//arr=str.match(/p.p/ig);// . 表示能匹配任意一个字符,不包括换行符，pp也无法匹配，js的换行符写法\n，例如 p\np  ,p和p占2行
+//arr=str.match(/p.?p/ig);// ?可以匹配没有字符和空格，例如pp,表示字符可有可无
+//arr=str.match(/p\Dp/ig);// /d 表示任意一个数字 /D表示任意一个非数字，包括pp
+//arr=str.match(/p\sp/ig);// \s表示任意一个空格，\S表示任意一个非空格
+//arr=str.match(/p\bp/ig);// \b 表示单词边界 例如andphp 无边界不匹配，\B 非单词边界
+//arr=str.match(/p\np/ig);//   \n 匹配换行符
+
+alert(arr);
+*/
+
+
+//4.量词：修饰元字符的
+//str='linux and php LINUX and linuxx and PHp 2 3 20 p2p p-p pp pp';
+//arr=str.match(/p.+p/ig);//  +修饰前面的元字符，表示匹配1个或多个前面的字符
+//arr=str.match(/p.?p/ig);//? 表示匹配1个或者0个前面字符
+//arr=str.match(/p.*p/ig);//   .*表示所有，模糊匹配，最大化匹配，匹配中间所有的，词与词之间不分；
+//arr=str.match(/p.*?p/ig); // .*? 表示精确匹配任意多个字符
+//arr=str.match(/p.{1,}?p/ig);// {1,}表示精确匹配一个以上前面元字符；{1}只能匹配一个 {1,3}匹配1到3个
+//arr=str.match(/p.p$/ig);//  $代表以p结束
+//arr=str.match(/^l.nux/ig);//^代表匹配以l开头的行首，和后面的字符串
+//arr=str.match(/p.p(?= LINUX)/ig);// (?= LINUX)表示紧挨着LINUX前面的p.p；LINUX前面和等号之间有个空格，
+//arr=str.match(/p.p(?! LINUX)/ig);//(?! LINUX)跟上面的相反
+
+
+//alert(arr);
+
+
+/*
+js中使用正则的字符串对象的方法
+search();
+match();
+replace();
+split();
+*/
+
+
+
+//正则例子
+/*
+//匹配电话验证
+phone="13923614403";
+if(phone.match(/^139\d{8}$/i)){;//数字开头，11个数字，数字结尾，忽略大小写。
+	alert('电话正确');
+}else{
+	alert('电话有误');
+}
+*/
+
+
+
+//匹配邮箱验证
+/*
+email='qwqeessdd@qq.com';
+if(email.match(/^\w+@\w+\.\w+$/i)){//任何一个非字母数字下划线，多个，@,任何一个非字母数字下划线,多个，. ,任何一个非字母数字下划线,多个,以任何一个非字母数字下划线结束
+	alert('邮箱正确');
+}else{
+	alert('邮箱有误');
+}
+*/
+
+
+
+
+//高级替换:向后引用$1,用replace时
+/*
+date="2016/05/11";
+//time=date.replace('2016','2017');
+//time=date.replace(/\d+/g,'x');//所以数字换成x，正则里面不能用引号
+time=date.replace(/(\d+)\/(\d+)\/(\d+)/g,'$1-$2-$3');//2016-5-11,()里面的跟$的值对应。
+alert(time);
+*/
+
+
+
+</script>
+</html>
