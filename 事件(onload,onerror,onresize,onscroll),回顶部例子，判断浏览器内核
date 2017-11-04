@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+<title>test</title>
+<meta charset="utf-8">
+<style>
+*{margin:0;padding:0;}
+#imgid{width:128px;height:128px;}
+#imgid1{position:fixed;bottom:0;right:0;width:50px;height:50px;display:none;}
+
+
+</style>
+</head>
+<body>
+
+<img src="2.jpg" id="imgid" width="128px" height="128px">
+<script>
+imgobj=document.getElementById('imgid');
+imgobj.onerror=function(){//如果2.jpg找不到，就用1.jpg
+	this.src="1.jpg";
+}
+window.onresize=function(){
+	//window.open('http://www.baidu.com');
+}
+</script>
+
+<h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1>
+<h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1><h1>1</h1>
+
+<img src='1.jpg' id="imgid1">
+
+<script>
+
+//
+img1obj=document.getElementById('imgid1');
+window.onscroll=function(){
+	 var rt=document.documentElement.scrollTop;
+	//document.title=r;
+	if(rt>200){
+		img1obj.style.display='block';
+	}else{
+		img1obj.style.display='none';
+	}
+	img1obj.onclick=function(){
+		document.documentElement.scrollTop=0;
+		
+	}
+	
+	
+}
+
+
+</script>
+
+</body>
+<script>
+
+
+//其它事件（a,b,c,d)
+//a.   onload//当标签加载或窗口加载
+/*
+//网页加载
+//1.标签加载完毕
+body后面的js代码，例如imgobj.onload=function(){
+
+}
+//窗口加载完毕
+window.onload=function(){
+  元素
+  事件
+}
+*/
+
+
+//b. onerror// 当图片加载失败,body里面有例子
+
+
+//c. onresize //当窗口尺寸发生变化  body里面有例子
+/* 
+//window.onresize=function(){
+	//window.open('http://www.baidu.com');
+	//可以加让背景颜色随着窗口的大小而变色
+//}
+
+
+*/
+//d.   onscroll//当窗口滚动条滚动的时候
+
+
+
+
+
+/*
+如果html设置背景色，body里面也设背景色，那么body所占的颜色的位置，只是body里面内容所占的位置。
+如果html不设置背景色，body里设置背景色，则整个页面的颜色就变成body的颜色。
+document.documentElement.style.background="#0f0";//documentElement 指的是html，此行意思是为html设置颜色
+document.body.style.background="#f00";//为body设置颜色
+
+
+获取三个高度
+1.有效高，屏幕可视的高度
+document.documentElement.clientHeight
+
+2.屏幕总高度
+document.documentElement.scrollHeight
+
+3.窗口已滚动的高度   滚动的高度
+document.documentElement.scrollTop //ie和火狐用此段
+document.body.scrollTop)  //
+兼容性问题，要判断内核
+/*
+//判断浏览器内核
+nu=navigator.userAgent;
+//alert(nu.match(/chrome/i));
+if(nu.match(/chrome/i)){
+	//chrome
+}else{
+	//非chrome
+}
+
+
+function isChrome(){
+	nu=navigator.userAgent;
+	if(nu.match(/chrome/i)){
+		return true; //真往下执行
+	}else{
+		return false;//假就停止
+	}
+
+}
+*/
+
+
+
+
+document.documentElement.scrollHeight //屏幕总高度
+
+*/
+</script>
+</html>
