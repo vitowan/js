@@ -157,12 +157,16 @@ iptobj.onblur=function(){//失去焦点时，立马弹出信息
 
 </script>
 <hr>
+<form action="go.php" id="fid">
 <select id="s1">
 	<option>选择城市</option>
 	<option value='北京'>北京</option>
 	<option value="上海">上海</option>
 	<option value="广州">广州</option>
 </select>
+<p><input type="submit" value="提交"></p>
+<p><input type="reset" value="重置"></p>
+</form>
 <h4>请确认您选择的城市：<span id="s2">北京</span></h4>
 
 <script>
@@ -173,18 +177,29 @@ s1obj.onchange=function(){//经常用在下拉菜单
 	s2obj.innerHTML=s1val;
 }
 
+fidobj=document.getElementById('fid');//html的表单id必须放到form上，因为提交的是整个表单
+fidobj.onsubmit=function(){
+	r=confirm('确认提交吗？');
+	if(!r){
+	return false;
+	}
+}
+
 </script>
 
 
 </body>
 <script>
+
+
+
 //表单事件
-//onfocus  //表单获得焦点事件
+//onfocus  //当表单获得焦点事件
 //onblur  //失去焦点，跟onfocus相反
 //onchange //当表单值发生改变时执行个函数。。。。。
-//onselect
-//onsubmit
-//onreset
+//onselect   //当表单的value值被选中
+//onsubmit //当表单提交时
+//onreset// 当表单重置时
 
 
 //表单事件方法
@@ -192,3 +207,4 @@ s1obj.onchange=function(){//经常用在下拉菜单
 
 </script>
 </html>
+
