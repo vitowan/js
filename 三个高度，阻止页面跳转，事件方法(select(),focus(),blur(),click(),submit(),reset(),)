@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+<title>test</title>
+<meta charset="utf-8">
+<style>
+*{margin:0;padding:0;}
+#fileid{display:none;}
+#up{cursor:pointer;}
+</style>
+</head>
+<body>
+<form action="" id="subid">
+<p>用户名：</p>
+<p><input type="text" value="小花" id="tid"></p>
+<p><input type="file" id="fileid"></p>
+<p><img src="1.jpg" width='100px' height='25px' id="up"></p>
+<input type="text" id="textid"></input>
+<p><input type="submit" value="提交"></p>
+
+</form>
+<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>
+<button id="submit">提交</button>
+<button id="reset">取消</button>
+<script>
+inobj=document.getElementById('tid');
+inobj.focus();//刷新刚进来就获得焦点，获得焦点的方法
+inobj.onfocus=function(){
+	this.select();//获得焦点后被选中内容
+}
+inobj.onkeydown=function(event){
+	//document.title=event.keyCode;// 测试知道空格键的键盘码是32
+	if(event.keyCode==32){
+		this.blur();//按空格键时，失去焦点方法
+	}
+}
+fileobj=document.getElementById('fileid');
+upobj=document.getElementById('up');
+upobj.onclick=function(){//先隐藏file的input，再点击图片后用click()方法调用
+	fileid.click();
+}
+pidobj=document.getElementById('pid');
+fileid.onchange=function(){//当file值改变时，把值赋值到框里
+	textid.value=fileid.value;
+}
+
+formobj=document.getElementById('subid');
+submitobj=document.getElementById('submit');
+resetobj=document.getElementById('reset');
+submitobj.onclick=function(){
+	formobj.submit();//把提交和重置按钮写到表单外面时，可以用submit()和reset()方法
+}
+resetobj.onclick=function(){
+	formobj.reset();//
+}
+
+
+</script>
+<hr>
+<a href="http://www.baidu.com" id="aid">百度一下</a>
+<script>
+aidobj=document.getElementById('aid');
+aidobj.onclick=function(){
+	alert(aidobj);
+	return flase;//阻止跳转
+
+}
+
+</script>
+
+
+
+
+</body>
+<script>
+
+
+//其它事件（a,b,c,d)
+//a.   onload//当标签加载或窗口加载
+/*
+//网页加载
+//1.标签加载完毕
+body后面的js代码，例如imgobj.onload=function(){
+
+}
+//窗口加载完毕
+window.onload=function(){
+  元素
+  事件
+}
+*/
+
+
+//b. onerror// 当图片加载失败,body里面有例子
+
+
+//c. onresize //当窗口尺寸发生变化  body里面有例子
+/* 
+//window.onresize=function(){
+	//window.open('http://www.baidu.com');
+	//可以加让背景颜色随着窗口的大小而变色
+//}
+
+
+*/
+//d.   onscroll//当窗口滚动条滚动的时候
+
+
+/*
+select();被选择方法
+blur();失去焦点的方法
+focus();获得焦点的方法
+click();点击提交文件方法
+submit();
+reset();
+
+
+
+
+
+
+
+*/
+
+
+
+
+
+
+/*
+获取三个高度
+1.有效高，屏幕可视的高度
+document.documentElement.clientHeight
+
+2.屏幕总高度
+document.documentElement.scrollHeight
+
+3.窗口已滚动的高度   滚动的高度
+document.documentElement.scrollTop //ie和火狐用此段
+document.body.scrollTop)  //
+兼容性问题，要判断内核
+/*
+//判断浏览器内核
+nu=navigator.userAgent;
+//alert(nu.match(/chrome/i));
+if(nu.match(/chrome/i)){
+	//chrome
+}else{
+	//非chrome
+}
+
+
+function isChrome(){
+	nu=navigator.userAgent;
+	if(nu.match(/chrome/i)){
+		return true; //真往下执行
+	}else{
+		return false;//假就停止
+	}
+
+}
+*/
+
+/*
+tot=document.documentElement.scrollHeight //屏幕总高度
+hei=document.documentElement.clientHeight//当前可视屏高度/一屏的高度
+sc=document.documentElement.scrollTop//滚动条已滚动高度
+sc=tot-height//三者的关系
+*/
+
+sh=document.documentElement.scrollHeight;
+ch=document.documentElement.clientHeight;
+diff=sh-ch;
+window.onscroll=function(){
+	sc=document.documentElement.scrollTop;
+	if(sc==diff){
+		document.body.style.background="#f00";
+	}else{
+		document.body.style.background="#fff";
+	}
+
+
+
+}
+
+
+
+</script>
+</html>
