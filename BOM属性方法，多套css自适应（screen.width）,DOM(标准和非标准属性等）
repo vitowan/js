@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel='stylesheet' href="1366.css" id="cssid">
+<script>
+////根据屏幕分辨率，来加载不同的css样式，做到自适应
+</*
+cssobj=document.getElementById('cssid');
+sw=screen.width;
+switch(sw){
+	case 1024:
+	cssonj.href='1024.css';
+	break;
+	case 1280:
+	cssonj.href='1280.css';
+	break;
+	case 1366:
+	cssonj.href='1366.css';
+	break;	
+}
+*/
+</script>
+</head>
+<body>
+<a href="javascript:" id="aid">返回上一页</a>
+<a href="javascript:" id="aid2">返回上二页</a>
+<script>
+aidobj=document.getElementById('aid');
+aid2obj=document.getElementById('aid2');
+aidobj.onclick=function(){
+	//history.back();//回上一页
+	history.go(-1);//回上一页，
+}
+aid2obj.onclick=function(){
+	//history.back();//回上一页
+	history.go(-2);//回上两页
+}
+
+
+</script>
+<button id="btn">刷新</button>
+<script>
+btnobj=document.getElementById('btn');
+btnobj.onclick=function(){
+	location.reload();//刷新当前页面，重新载入
+}
+
+</script>
+
+</body>
+<script>
+/*
+#########BOM：browser objeckl(浏览器对象模型)
+BOM浏览器对象：
+window对象
+navigator浏览器特性
+screen屏幕对象
+history对象
+location地址栏
+document对象
+*/
+
+//window对象：
+/*
+属性：
+frames //
+opener
+top
+
+方法：
+alert();
+confirm();
+prompt();
+setInterval();
+clearInterval();
+setTimeout();
+clearTimeout();
+*/
+
+
+//navigator浏览器特性：
+/*
+nu=nav.match(/chrome|firefox|trident/i)//正则查找三者中任何制定对象
+switch(nu[0]){
+	case 'Chrome':
+	----------
+	break;
+	case 'Firefox';
+	-------------
+	break;
+	case 'Trident';
+	-------------
+	break;
+}*/
+
+
+//screen屏幕对象:head里面有例子
+/*
+sw=screen.width;//屏幕宽度
+sh=screen.height;//屏幕高度
+sa=screen.availWidth;//有效宽
+sah=screen.availHeight;//有效高
+alert(sah);
+*/
+/*
+//根据屏幕分辨率，来加载不同的css样式，做到自适应
+
+
+*/
+
+
+
+
+//history对象:只有方法，body里面有例子
+//方法：
+//back() 后退一个历史
+//forward()前进一个历史
+//go(-1)前进一个历史go(-2)2页go(1)go(2)前进几页，或者后退几页
+
+
+
+
+//location地址栏
+//属性：
+/*
+hash//获取url的锚点#abc
+host//主机名
+href//当前的url地址
+pathname//index.html页面的名称
+protocol //协议
+search //参数?id=10&name=user1
+
+
+方法：
+reload()//
+location.reload();//重新加载地址栏，就是刷新页面
+
+*/
+
+
+
+//alert(location);//alert(location.href);结果一样，都是地址，
+//location='http://www.baidu.com' ;//页面加入js这行代码，页面刷新直接跳转
+
+
+//alert(location.hash);获取url锚点
+
+//alert(location.host);获得网站的主机名
+
+//alert(location.pathname);获得网站路径部分
+
+//alert(location.protocol);获得网站协议名 http
+
+//alert(location.search);获取网站参数，例如?id=10&name=user1
+
+
+
+</script>
+</html>
+
+
+
+
+/////////////////////////////////////
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel='stylesheet' href="1366.css" id="cssid">
+<script>
+
+</script>
+</head>
+<body>
+
+
+
+</body>
+<script>
+/*
+##### DOM对象
+document
+document.documentElement
+document.head
+document.title
+document.body
+
+
+获取元素对象的方式
+document.getElementById()//通过id来获得元素集合
+document.getElementsByTagName()//通过标签名来获得元素集合
+document.getElementByClassName() //通过类名获得元素集合
+document.getElementByName()//通过name属性来获得元素集合，很少使用
+
+
+
+元素对象标准属性：可以如下方式获取更改
+obj.id;
+obj.className;
+obj.style;
+obj.title;
+
+
+元素对象标准属性
+<form action="" method="" index="3" age='5'>
+
+action 和form是标准属性
+index和age是非标准属性
+非标准属性获取方式：getAttribute();// 例如getAttribute(index);
+改非标准属性内容：setAttribute('index','php');
+标准属性同样可用此法，通用的
+
+把getAttribute() 和setAttribute()写成函数
+function getA(obj,attr){
+	return obj.getAttribute(attr);
+}
+getA( hidobj,'class'));
+
+function setA(obj,attr,value){
+	obj.setAttribute(attr,value);
+}
+setA(hidobj,'info','php is good');
+
+
+
+
+
+元素对象js属性
+obj.tagName  //获取标签名
+obj.innerHTML  //获取标签的内容（包括里面含有的标签例如P标签含有span标签，span标签页会显示）
+obj.outerHTML //标签的全部代码内容
+OBJ.textContent// 获取标签的文本内容，不含内部子标签
+
+
+
+能直接获取DOM元素对象集合：
+document.links;//a链接
+document.images;//图片
+document.forms;//form表单
+document.anchors;//锚点
+如果有表格对象可写：
+tableobj.rows;
+tablerowobj.cells;
+
+selectobj.options；//用于下拉菜单，获取所有的options的对象集合
+selectobj.selectedIndex;//下拉菜单中被选择的值的下标
+
+
+
+*/
+
+
+
+
+
+</script>
+</html>
