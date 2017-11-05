@@ -140,7 +140,7 @@ document.documentElement.scrollTop //ie和火狐用此段
 document.body.scrollTop)  //
 兼容性问题，要判断内核
 /*
-//判断浏览器内核
+//判断浏览器内核：三个方式
 nu=navigator.userAgent;
 //alert(nu.match(/chrome/i));
 if(nu.match(/chrome/i)){
@@ -159,6 +159,22 @@ function isChrome(){
 	}
 
 }
+
+
+
+nu=nav.match(/chrome|firefox|trident/i)//正则查找三者中任何制定对象
+switch(nu[0]){
+	case 'Chrome':
+	----------
+	break;
+	case 'Firefox';
+	-------------
+	break;
+	case 'Trident';
+	-------------
+	break;
+}
+
 */
 
 /*
