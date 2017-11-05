@@ -65,6 +65,20 @@ arr=str.match(/lin[ux]x/ig);//  []方括号的意思是体内的任意一个匹�
 //arr=str.match(/p[a-z]p/ig);//[a-z]表示匹配小写字母a-z中字母的任意一个值，[A-Z]匹配大写，[A-z]大小写都匹配
 //arr=str.match(/(p[a-z]p)|(lin[a-z]x)/ig);// ()或() 匹配出来，这是()用法
 alert(arr);//linux,LINUX,linuxx
+(red|blue|green)//查找其中任何匹配对象
+nu=nav.match(/chrome|firefox|trident/i)//正则查找三者中任何制定对象
+switch(nu[0]){
+	case 'Chrome':
+	----------
+	break;
+	case 'Firefox';
+	-------------
+	break;
+	case 'Trident';
+	-------------
+	break;
+}
+
 */
 
 
