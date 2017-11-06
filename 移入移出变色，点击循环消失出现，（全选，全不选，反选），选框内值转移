@@ -147,12 +147,12 @@ s1=document.getElementById('s1');
 s2=document.getElementById('s2');
 opts=s1.options;//option的集合
 btn.onclick=function(){
-	idx=s1.selectedIndex;//
+	idx=s1.selectedIndex;//被选中的option的下标
 	//alert(idx);
-	s2.add(opts[idx]);
+	//s2.add(opts[idx]);//add(); 下拉菜单的方法，增加option给自己，且把原来的移过去了,以为对象只能移动，不能复制
+	s2.innerHTML+=opts[idx].outerHTML;//值复制过来，字符串连接形式
+	
 }
-
-
 
 </script>
 
