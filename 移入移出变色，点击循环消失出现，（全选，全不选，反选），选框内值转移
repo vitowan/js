@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+<title>test</title>
+<meta charset="utf-8">
+<style>
+*{margin:0;padding:0;}
+span{display:none;}
+select{width:100px;height:100px;}
+
+</style>
+</head>
+<body>
+<h1>9999</h1>
+<span>000001</span>
+<h1>999</h1>
+<span>000002</span>
+<h1>999</h1>
+<span>000003</span>
+<h1>999</h1>
+<span>000004</span>
+<script>
+
+/*
+//移入移出变色
+h1obj=document.getElementsByTagName('h1');
+for(i=0;i<h1obj.length;i++){
+	h1obj[i].onmouseenter=function(){
+		this.style.background="#ccc";
+	}
+	h1obj[i].onmouseleave=function(){
+		this.style.background="#fff";
+	}
+}*/
+
+//点击循环变色
+/*
+h1obj=document.getElementsByTagName('h1');
+for(i=0;i<h1obj.length;i++){
+h1obj[i].setAttribute('num',0);//添加非标准属性，为每个标签加个字符串的num=0
+	h1obj[i].onclick=function(){
+		num=parseInt(this.getAttribute('num'));//把字符串的num赋值给变量整型num
+		this.setAttribute('num',num+1)//让变量自增
+		if(num%2==0){//循环点击变色
+			this.style.background='#ccc';
+		}else{
+			this.style.background='#fff';
+		}
+	}
+}
+*/
+
+//点击循环消失和出现:(父子或者平级都可做到)
+/*
+h1obj=document.getElementsByTagName('h1');
+spanobj=document.getElementsByTagName('span');
+for(i=0;i<h1obj.length;i++){
+h1obj[i].setAttribute('num',0);//添加非标准属性，为每个标签加个字符串的num=0
+h1obj[i].setAttribute('line',i);
+spanobj[i].id=i; //span不在h1里面，要加个参数便于找到它与h1对应，如果在h1内部，不用此行
+	h1obj[i].onclick=function(){
+		num=parseInt(this.getAttribute('num'));//把字符串的num赋值给变量整型num
+		line=this.getAttribute('line');
+		spanobj=document.getElementById(line);//如果在h1内部，可换成spanobj=this.getElementsByTagName('span');
+		
+		if(num%2==0){//循环点击消失出现
+			spanobj.style.display='none';//如果span在h1内部，可换成spanobj[0].style.display="none";
+		}else{
+			spanobj.style.display='block';//如果span在h1内部，可换成spanobj[0].style.display="block";
+		}
+		this.setAttribute('num',num+1);//让变量自增
+	}
+}
+*/
+</script>
+
+
+<!--
+//全选，全不选，反选
+<form action="">
+	<p>请选择</p>
+<p><label><input type="checkbox">a</label></p>
+<p><label><input type="checkbox">a</label></p>
+<p><label><input type="checkbox">a</label></p>
+<p><label><input type="checkbox">a</label></p>
+<p><label><input type="checkbox">a</label></p>
+<p><label><input type="checkbox">a</label></p>
+<p><label><input type="checkbox">a</label></p>
+<p><label><input type="checkbox">a</label></p>
+<p><label><input type="checkbox">a</label></p>
+<p><label><input type="checkbox">a</label></p>
+<p><label><input type="checkbox">a</label></p>
+</form>
+<p>
+<button id="all">全选</button>
+<button id="notall">全不选</button>
+<button id="unall">反选</button>
+</p>
+<script>
+all=document.getElementById('all');
+notall=document.getElementById('notall');
+unall=document.getElementById('unall');
+inpobj=document.getElementsByTagName('input');
+all.onclick=function(){//全选
+	for(i=0;i<inpobj.length;i++){
+		inpobj[i].checked=true;//或者直接换成字符串'checked'
+	}
+}
+
+
+notall.onclick=function(){//全不选
+	for(i=0;i<inpobj.length;i++){
+		inpobj[i].checked=false;
+	}
+}
+
+
+unall.onclick=function(){//反选
+	for(i=0;i<inpobj.length;i++){
+		if(inpobj[i].checked){
+			inpobj[i].checked=false;
+		}else{
+			inpobj[i].checked=true;
+		}			
+	}
+}
+
+</script>
+-->
+
+
+<h1>左边框，选到右边框</h1>
+<form action="javascript:;" >
+<select id="s1" size='2'>
+	<option>西瓜</option>
+	<option>苹果</option>
+	<option>南瓜</option>
+	<option>梨子</option>
+</select>
+<input type="button" value=">>" id="btn">
+<select name="" id="s2" size='2' >
+</select>
+</form>
+<script>
+btn=document.getElementById('btn');
+s1=document.getElementById('s1');
+s2=document.getElementById('s2');
+opts=s1.options;//option的集合
+btn.onclick=function(){
+	idx=s1.selectedIndex;//
+	//alert(idx);
+	s2.add(opts[idx]);
+}
+
+
+
+</script>
+
+</body>
+
+</html>
