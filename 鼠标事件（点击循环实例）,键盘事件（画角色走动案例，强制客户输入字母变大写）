@@ -160,3 +160,70 @@ onkeypress:
 
 </script>
 </html>
+
+
+
+
+。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标事件********************</title>
+	<script>
+		
+
+	</script>
+</head>
+<body>
+	<button id="btn">陈小春爆了一个麻痹戒指</button>
+</body>
+</html>
+<script>
+	/*
+	鼠标事件 
+	1.onclick 鼠标单击事件
+	2.ondblclick 鼠标双击事件
+
+	*/
+
+	//找对象
+	var btn = document.getElementById("btn");
+
+	// btn.onclick =  function(){
+
+	// 	console.log("我被单击了");
+	// }
+
+
+	// btn.ondblclick =  function(){
+
+	// 	console.log("我被双击了");
+	// }
+
+
+	//如何区别单击和双击事件
+
+	//定时器  清除定时器
+	var timmer;
+	btn.onclick = function(){
+		clearTimeout(timmer);
+		timmer = setTimeout(function(){
+
+			console.log("我被单击了");
+		},200);
+
+	}
+	//console.log(timmer);
+
+	btn.ondblclick =  function(){
+		clearTimeout(timmer);
+		// console.log(timmer);
+		//();
+		console.log("我被双击了");
+	}
+
+
+
+
+</script>
