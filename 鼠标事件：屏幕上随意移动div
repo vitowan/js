@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖动的div</title>
+	<script>
+		
+
+	</script>
+	<style>
+		*{
+
+			margin:0px;
+			padding:0px;
+		}
+		#box{
+			height:100px;
+			width:100px;
+			background:red;
+			position: absolute;
+			
+
+		}
+
+	</style>
+</head>
+<body>
+	<div id="box" style="left:0px;top:0px" ></div>
+</body>
+</html>
+<script>
+	//鼠标的按下事件 onmousedown
+
+
+	//找对象
+	var box = document.getElementById("box");
+
+	// console.log(box);
+
+	// console.log(parseInt(box.style.left)); //0px  
+	// console.log(typeof box.style.top);
+
+	// // box.style.left = 20 + "px";
+	// console.log(parseInt("123456px"));
+
+
+
+
+
+	box.onmousedown = function(e){
+
+		//浏览器的兼容器
+
+		var e = e || event; //把e 或者event 赋值给e
+
+
+		//鼠标距离浏览器左边的距离
+
+		// e.clientX;
+
+		//鼠标距离浏览器上边的距离
+		// e.clientY;
+
+
+		console.log(e.clientX,e.clientY);
+
+
+		console.log(parseInt(box.style.left));
+
+		//鼠标的坐标 - div的坐标 是什么
+
+		//鼠标相对于div的距离
+		var x = e.clientX - parseInt(box.style.left);
+		var y = e.clientY -parseInt(box.style.top);
+
+
+		document.onmousemove = function(e){
+		var e = e || event;
+
+		document.title = "X:"+e.clientX + "Y:"+e.clientY;
+
+		//修改div的坐标
+
+		box.style.left = e.clientX - x + "px";
+		box.style.top = e.clientY - y  + "px";
+
+	
+
+
+	}
+
+	}
+
+	//鼠标的抬起事件  抬起和按下  相对立
+	box.onmouseup = function(){
+
+
+		//抬起的时候 不想div和我移动
+		document.onmousemove = null;
+	}
+	
+
+</script>
