@@ -155,3 +155,117 @@
 
 
 </script>
+
+
+
+。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<table id="tid" width="500px" border="1px">
+		<tr>
+			<th>学号</th>
+			<th>姓名</th>
+			<th>性别</th>
+			<th>年龄</th>
+			<th>操作</th>
+		</tr>
+		<tr>
+			<td>1001</td>
+			<td>文洋</td>
+			<td>单身</td>
+			<td>14</td>
+			<td><button onclick="dodel(this)">删除</button></td>
+		</tr>
+
+	</table>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h2>添加学生信息</h2>
+	<form action="" name="myform" onsubmit="return add()">
+		学号:<input type="text" name="num"><br><br>
+		姓名:<input type="text" name="name"><br><br>
+		性别:<input type="text" name="sex"><br><br>
+		年龄:<input type="text" name="age"><br><br>
+		<input type="submit" value="添加">
+
+	</form>
+</body>
+</html>
+<script>
+	/*
+	div.parentNode div的父节点  div.parentNode.parentNode 父节点的父节点，可以多个套
+
+	tid.deleteRow(tr.rowIndex);//删除当前行
+
+	tab.insertRow();//tab里面插入行
+
+	row.insertCell(0).innerHTML = num;//
+	row.insertCell(1).innerHTML = name;
+	获取row之后，行里第一个单元格加num，第二个加name
+
+	
+	*/
+
+
+	function dodel(bb){
+		//this 当前对象button父节点td的父节点tr
+		var tr = bb.parentNode.parentNode;
+		//console.log(tr);
+
+		//执行删除操作
+
+		var tid = document.getElementById("tid");
+
+		//删除tid的行
+		console.log(tr.rowIndex);
+		tid.deleteRow(tr.rowIndex);
+
+
+
+	}
+	function add(){
+		//获取表单的信息
+		var num = document.myform.num.value;
+		var name = document.myform.name.value;
+		var sex = document.myform.sex.value;
+		var age = document.myform.age.value;
+		//console.log(num,name,sex,age);
+
+		//为表格添加一行
+
+		var tab =document.getElementById("tid");
+
+		//insertRow
+
+		var row = tab.insertRow();
+
+		//console.log(row);
+
+		row.insertCell(0).innerHTML = num;
+		row.insertCell(1).innerHTML = name;
+		row.insertCell(2).innerHTML = sex;
+		row.insertCell(3).innerHTML = age;
+		row.insertCell(4).innerHTML = "<button onclick='dodel(this)'>删除</button>";
+
+		return false;//为了不让table跳转
+	}
+
+
+</script>
+
+
+
+
+
+
