@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>6</title>
+	<style>
+	.spanstyle{
+	position:absolute;
+	top:-50px;
+	font-size:16px;
+	color:red;
+	font-weight:bold;
+}
+
+	</style>
+
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	///做一个蛇形文字
+
+
+	var message = "我是一个顶好顶好的定好的phper哦哦哦哦哦哦";
+	// document.write(message.length);//23
+	for(i=0; i<message.length;i++){
+		document.write("<span id='span"+i+"' class='spanstyle'>");
+		document.write(message[i]);
+		document.write("</span>");
+	}
+
+	document.onmousemove=function(e){
+		document.title=e.clientX +":"+ e.clientY ;
+		var length = 0;
+		var timmer = setInterval(function(){
+			
+
+				if(length >=message.length-1){
+
+					clearInterval(timmer);
+
+				}
+
+				snake(e.clientX,e.clientY,length); //一个蛇的方法
+			length++;
+		},50);
+
+
+	}
+
+	function snake(x,y,z){
+		//找对象 改属性
+		var span = document.getElementById("span"+z);
+
+
+		span.style.left = x+20+(z*50)+"px";
+		span.style.top  = y + "px";
+
+	}
+
+
+
+</script>
