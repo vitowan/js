@@ -1,0 +1,25 @@
+	找对象改属性
+			1.通过id找对象
+			document.getElementById("id名");
+
+
+			2.通过标签名找对象  集合数组
+			document.getElementsByTagName() 
+
+			3.通过类名找对象
+
+			document.getElementsByClassName() 数组
+
+			4。通过属性名找对象
+			<input type="text" name="username">
+			document.getElementsByName("usernmae")[0]
+
+			
+			5.通过img对象获得数组
+			document.images
+
+
+			6.获取body里边所有的标签对象
+			document.body
+      
+      7.getAttribute(属性名);//属性不管是自带的，还是非自带的都可用
