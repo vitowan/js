@@ -151,7 +151,11 @@ onmousemove:移动或抚摸事件，动一下就触发下事件
 /*
 onkeydown： 键盘下按事件   body有例子
 onkeyup：  键盘弹起事件  body有例子
-onkeypress:
+onkeypress 键盘按住
+keyCode 按键的键盘码
+altKey alt
+ctrlKey ctrl
+shiftKey shift
 
 */
 
@@ -227,3 +231,71 @@ onkeypress:
 
 
 </script>
+
+
+
+
+
+。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态检测输入内容的长度</title>
+	<style>
+		#die{
+			width:400px;
+			height:400px;
+			background: pink;
+
+
+		}
+
+		#son{
+			width:200px;
+			height:200px;
+			background: blue;
+			
+
+		}
+
+	</style>
+	
+</head>
+<body>
+	<div id="die">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	//事件冒泡
+	//找对象
+
+	var die=  document.getElementById("die");
+	var son=  document.getElementById("son");
+
+	son.onclick = function(e){
+
+		//阻止事件冒泡
+
+		var e = e || event;
+
+		// e.cancelBubble = true; 建议用这种
+
+		e.stopPropagation();
+		alert("点击了小的");
+
+	}
+
+	die.onclick = function(){
+		alert("点击了大的");
+
+	}
+
+</script>
+
+
+
+
