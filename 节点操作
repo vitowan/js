@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>节点操作</title>
+	<style>
+		#box{
+			width:800px;
+			height:500px;
+			border:1px solid red;
+			margin-top:20px;
+		}
+		.yanse{
+			background:pink;
+			width:100px;
+			height:100px;
+			float:left;
+			margin:10px 0 0 10px;
+			border-radius:10px;
+		}
+
+	</style>
+
+</head>
+<body>
+	<button>从最后添加一个</button>
+	<button>从第一个div的前面插入一个</button>
+	<button>删除最后一个</button>
+	<button>把最后一个复制到所有div的前面</button>
+	<button>重新替换第一个节点</button>
+	<button>清空</button>
+	<div id="box"></div>
+</body>
+</html>
+<script>
+	/*
+	document.createElement("div"); //创建一个新元素
+	box.removeChild(this);//请除盒子内部的子节点
+	box.appendChild(div); //把新元素加给父元素box里面
+	box.firstElementChild;//box盒子中的第一个元素
+	box.insertBefore(a,first);//先找到第一个元素first，再把box里添加的新div放到第一个div前
+	box.removeChild(移除的节点名);//移除盒子中的第一个节点
+	box.replaceChild(newDiv,老的);//节点替换
+	box.childNodes;//盒子里所有的节点
+
+		/*for(var i=childs.length-1;i>=0;i--){
+
+			box.removeChild(childs[i]);
+		}*///倒着可以一次性清空
+
+		/*for(i=0; i<childs.length; i++){
+			box.removeChild(childs[i]);
+		}//正着不一定一次清空
+
+	*/
+	var box = document.getElementById("box");
+	var buttons = document.getElementsByTagName("button");
+	
+
+	//取值范围的随机函数
+	function rand(m,n){
+
+		var rand = Math.floor(Math.random()*(n-m+1)+m);
+		return rand;
+		}
+
+
+	//创建一个和点击删除一个div的函数
+	function createDiv(){
+		div = document.createElement("div"); //创建一个新元素
+		div.innerHTML = "爽歪歪";//给新元素加上字
+		div.setAttribute("class","yanse");//给新元素加class属性，和值
+		div.style.background = "rgb(" + rand(0 ,255) + ',' + rand(0 ,255) + ',' + rand(0 ,255) + ")" ;//每次都是随机颜色
+		div.onclick = function(){
+			box.removeChild(this);//点击自己把自己删除
+		}
+		return div;//把整个div返回到调用处
+	}
+		
+
+
+
+	///最后添加一个
+	buttons[0].addEventListener("click",function(){
+
+		var a = createDiv();//添加一个
+		//console.log(a);
+		box.appendChild(div); //把新元素加给box里面
+		
+
+	})
+
+
+
+	//从第一个div前插入一个div
+	buttons[1].onclick = function(){
+		var a = createDiv();//添加一个
+		var first = box.firstElementChild; //获得第一个节点，也可用循环找到第一个
+		//console.log(first);
+		box.insertBefore(a,first);//把box里添加的新div放到第一个div前
+
+	}
+	
+
+
+	//删除最后一个div
+	buttons[2].onclick = function(){
+		var last =box.lastElementChild;//获取最后一个节点
+		if(last == null){
+			buttons[2].setAttribute("disabled",true);
+		}else{
+			box.removeChild(last);
+		}
+
+	}
+
+
+	//把最后一个复制到所有div前面
+	buttons[3].onclick = function(){
+		var first = box.firstElementChild;
+		var last = box.lastElementChild;
+
+		var cdiv = last.cloneNode();//只能复制div框架和css属性，不能复制事件和div里面的innerHTML
+		console.log(cdiv);
+		box.insertBefore(cdiv,first);
+		cdiv.onclick = function(){//只能通过重新添加事件删除自己
+
+			box.removeChild(this);
+		}
+	}
+
+
+	//重新替换第一个
+	buttons[4].onclick = function(){
+		var first = box.firstElementChild;
+		var newDiv = createDiv();
+		box.replaceChild(newDiv,first);//替换第一个节点，前面是新的，后面是老的
+	}
+
+
+	// 清空所有的
+	buttons[5].onclick = function(){
+		var childs = box.childNodes;//盒子里所有的节点
+		//console.log(childs)
+		box.innerHTML = "";//用此法也可以清除
+		/*for(var i=childs.length-1;i>=0;i--){
+
+			box.removeChild(childs[i]);
+		}*///倒着可以一次性清空
+
+		/*for(i=0; i<childs.length; i++){
+			box.removeChild(childs[i]);
+		}*///此法一次性清除不完，且从前面开始清除
+	}
+
+
+</script>
