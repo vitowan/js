@@ -25,6 +25,8 @@
 //alert(Math.max(1,100,2,3));//100,几个数字中的最大值
 //alert(Math.min(1,100,2));//1,几个数字中的最小值
 
+
+
 //alert(Math.random());//0~1之间的随机数字，每刷新一次变一次
 //下面案例从数组中随机取个值。
 arr=['a','d','c','q','r','t'];
@@ -32,6 +34,18 @@ rand=Math.random();
 tot=arr.length;
 sub=Math.floor(rand*tot);
 alert(arr[sub]);
+
+//random() 随机数 [0,1)  
+	Math.floor(Math.random()*(n-m+1)+m);//m-n的随机数
+
+		function  rand(m,n){
+		//[0,7)  [3,9]
+		return Math.floor(Math.random()*(n-m+1)+m);
+
+	}
+
+	document.write(rand(3,9)); //打印3-9的随机数
+
 
 </script>
 </html>
@@ -111,6 +125,38 @@ minute=dobj.getMinutes();
 second=dobj.getSeconds();
 document.write(year+'-'+month+'-'+day+' '+hour+':'+minute+':'+second);
 */
+
+、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+	//实例化一个时间对象
+	var date = new Date();
+	document.write(date);
+	document.write("<hr>");
+	year = date.getFullYear();//获取年
+	document.write(year);
+	document.write("<hr>");
+	month = date.getMonth()+1;//获取月
+	document.write(month);
+	document.write("<hr>");
+	day = date.getDate();//获取日
+	document.write(day);
+	document.write("<hr>");
+	hours = date.getHours();//获取小时
+	document.write(hours);
+	document.write("<hr>");
+	minutes = date.getMinutes();//获取分钟
+	document.write(minutes);
+	document.write("<hr>");
+	seconds = date.getSeconds();//获取秒
+	document.write(seconds);
+	document.write("<hr>");
+	week = date.getDay();
+	document.write(week);//获取周
+	document.write("<hr>");
+	weeks = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+	document.write(weeks[week]);//中文打印周几
+	document.write("<hr>");
+	document.write(year+"年" + month+"月"+day+"日"+hours+"时"+minutes+"分"+seconds+"秒"+"今天"+weeks[week]);
+
 
 
 //定时器：body里面有事例
