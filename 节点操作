@@ -38,6 +38,7 @@
 	box.removeChild(this);//请除盒子内部的子节点
 	box.appendChild(div); //把新元素加给父元素box里面
 	box.firstElementChild;//box盒子中的第一个元素
+	box.lastElementChild;//box盒子中的最后一个元素
 	box.insertBefore(a,first);//先找到第一个元素first，再把box里添加的新div放到第一个div前
 	box.removeChild(移除的节点名);//移除盒子中的第一个节点
 	box.replaceChild(newDiv,老的);//节点替换
