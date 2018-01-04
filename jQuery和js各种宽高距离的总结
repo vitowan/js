@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	document.write(document.body.clientWidth); //相对body的
+	document.write(document.documentElement.clientWidth);//相对html的
+	$(function(){
+		//.offset();方法函数详解  jQuery中 **************
+	/*	.offset();//元素的坐标值，无论什么情况下都是相对于document的，有left和top值，没有单位
+		$("div").offset().left;//相对于document的左位移
+		$("div").offset().right;//相对于document的右位移
+		$("button").click(function(){
+    		$("p").offset({top:100,left:0});//例如通过点击让p元素发生位置变化
+  		});
+		
+		width() 方法设置或返回元素的宽度（不包括内边距、边框或外边距）。
+		height() 方法设置或返回元素的高度（不包括内边距、边框或外边距）。
+		innerWidth() 方法返回元素的宽度（包括内边距）。对应js里面的width
+		innerHeight() 方法返回元素的高度（包括内边距）。对应js里面的height
+		outerWidth() 方法返回元素的宽度（包括内边距和边框）。对应js里面的.offsetWidth;
+		outerHeight() 方法返回元素的高度（包括内边距和边框）。对应js里面的.offsetHeight;
+		outerWidth(true) 方法返回元素的宽度（包括内边距、边框和外边距）。
+		outerHeight(true) 方法返回元素的高度（包括内边距、边框和外边距）。
+
+
+  		*/
+/*
+  		//.offsetLeft; //如果没有已经定位的父元素，那么offsetLeft指向的是文档（document）的左边缘，如果有定位父元素，相对于父元素的左边，没有单位 .offsetTop;也是同理.跟jQuery里面的offset().left;值不太一样
+  		// .offsetWidth; 和 .offsetHeight;分别表示元素的宽高，都带边框的宽度，直接的width和height不带边框。
+
+
+  		.scrollWidth:获取对象的滚动宽度 。
+
+		.scrollHeight: 获取对象的滚动高度。
+
+		.scrollLeft:已经滚动的宽度
+		.scrollTop:已滚动的高度
+
+		.clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框；
+
+		.clientHeight: 获取对象可见内容的高度，不包括滚动条，不包括边框；
+
+		.clientLeft: 获取对象的border宽度
+
+		.clientTop：获取对象的border高度
+
+		.offsetParent :当前对象的上级层对象.
+
+
+		网页可见区域宽： document.body.clientWidth;
+		网页可见区域高： document.body.clientHeight;
+		网页可见区域宽： document.body.offsetWidth   (包括边线的宽);
+		网页可见区域高： document.body.offsetHeight  (包括边线的宽);
+		网页正文全文宽： document.body.scrollWidth;
+		网页正文全文高： document.body.scrollHeight;
+		网页被卷去的高： document.body.scrollTop;
+		网页被卷去的左： document.body.scrollLeft;
+		网页正文部分上： window.screenTop;
+		网页正文部分左： window.screenLeft;
+		屏幕分辨率的高： window.screen.height;
+		屏幕分辨率的宽： window.screen.width;
+		屏幕可用工作区高度： window.screen.availHeight;
+		屏幕可用工作区宽度：window.screen.availWidth;
+
+*/
+
+
+	});
+
+
+</script>
