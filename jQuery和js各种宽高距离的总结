@@ -9,6 +9,12 @@
 </body>
 </html>
 <script>
+
+
+//参考网址：https://segmentfault.com/a/1190000002879406
+
+
+
 	document.write(document.body.clientWidth); //相对body的
 	document.write(document.documentElement.clientWidth);//相对html的
 	$(function(){
@@ -68,6 +74,9 @@
 		屏幕分辨率的宽： window.screen.width;
 		屏幕可用工作区高度： window.screen.availHeight;
 		屏幕可用工作区宽度：window.screen.availWidth;
+		
+		
+		
 
 */
 
