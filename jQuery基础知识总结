@@ -212,5 +212,157 @@ $("b").replaceWith(function(){
 			i++;
 		});
 	});
+、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+		$("button").eq(9).click(function(){
+			$("div").animate({"width":"700px","height":"700px"},1000); 动画里面的属性，必须带大括号{}
+			$("div").animate({"width":"600px","height":"450px"},1000);
+		});
+		$("button").eq(10).click(function(){
+			$("div").stop();//停止当前动画，再点击自定义动画后可以继续
+		});
+1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+
+	$(function(){
+		var str = "iloveyouphp";
+		var p =/love/;//正则
+		console.log(p);
+		console.log(typeof p);
+	// test()  用于检测一个字符串是否匹配某个模式
+
+	//如果字符串中有匹配的  返回true  否则是false
+	var a = p.test(str);
+	console.log(a); //true
 
 
+	//exec() 方法用于检索字符串中的正则表达式的匹配
+	//返回一个数组  用于存放匹配的结果 如果没有找到  返回值为null
+
+、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+关于冒泡和return false
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="./jquery-1.8.2.min.js"></script>
+	<style>
+		div{
+			border-radius: 500px;
+		}
+		#box1{
+
+			width:500px;
+			height:500px;
+			background-color: orange;
+			position: absolute;
+		}
+
+		#box2{
+
+			width:400px;
+			height:400px;
+			background-color: green;
+			position: absolute;
+			top:50px;
+		}
+
+		#box3{
+
+			width:300px;
+			height:300px;
+			background-color: red;
+			position: absolute;
+			top:50px;
+		}
+
+		#box4{
+
+			width:200px;
+			height:200px;
+			background-color: blue;
+			position: absolute;
+			top:50px;
+		}
+
+		#box5{
+
+			width:100px;
+			height:100px;
+			background-color: pink;
+			position: absolute;
+			top:50px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box1">
+		<div id="box2">
+			<div id="box3">
+				<div id="box4">
+					<div id="box5"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+		// js的事件冒泡
+		// e.stopPropagation()
+
+		// e.cancelBubblue
+	$(function(){
+		$("div").on("click",function(){
+			$(this).css("background","#ccc");
+			return false;//阻止事件冒泡
+		});
+		var a = true;
+
+	
+		if(a){
+
+			console.log(1);
+
+			return ;//阻止事件，下面的不执行
+
+			console.log(2);
+			console.log(3);
+			console.log(4);
+			console.log(5);
+			console.log(6);
+			console.log(7);
+			console.log(8);
+			console.log(9);
+			console.log(10);
+			console.log(11);
+		}
+
+
+
+	// //return 函数里  返回值  一个函数里只有一个返回值  
+
+	// //阻止默认事件的行为
+	// <a href="http://www.baidu.com" onclick="return func()">百度</a>
+
+	// function func(){
+
+	// 	return false;
+	// }
+	//return; 终止代码行为
+
+		// //取消事件的冒泡 return false
+
+
+
+
+
+	})
+
+
+
+
+</script>
