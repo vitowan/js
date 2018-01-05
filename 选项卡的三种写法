@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+<style>
+		*{
+			margin:0px;
+			padding:0px;
+
+		}
+
+		/*容器css*/
+
+		#container{
+
+			width:800px;
+			/*margin:20px auto;*/
+			/*border:1px solid red;*/
+		}
+
+
+		ul{
+
+			list-style:none;
+		}
+
+		#options{
+			border-bottom:1px solid #999;
+			border-left:1px solid #999;
+			height:38px;
+
+		}
+
+		#options li{
+
+			float:left;
+			border-top:1px solid #999;
+			border-right:1px solid #999;
+			line-height:37px;
+			background-color:#f5f5f5;
+			padding:0px 20px; /*内边距上下0px 左右20px*/
+
+		}
+
+		#options .current{
+
+			background-color:#fff;  /*白色*/
+			height:39px;
+		}
+
+		#cards{
+
+			clear:both;
+		}
+
+
+		#cards li{
+			border:1px solid #999;
+			height:400px;
+			border-top:none;
+			padding:20px;
+			display: none;
+
+		}
+		#cards .current{
+
+			display: block;
+		}
+
+	</style>
+	<script src="jquery-1.8.2.min.js"></script>
+</head>
+<body>
+	
+		<h3>选项卡</h3>
+		<hr/>
+		<br>
+		<!-- 定义一个容器 -->
+		<div id="container">
+			<!--选项区域-->
+			<ul id="options">
+				<li class="current">已完成订单</li>
+				<li>已发货订单</li>
+				<li>已付款订单</li>
+				<li>未付款订单</li>
+				<li>已失效订单</li>
+
+			</ul>
+
+			<!-- 定义卡选项 -->
+			<ul id="cards">
+				<li class="current">亲，您的订单已经完成</li>
+				<li>呀,您的货已经发走了</li>
+				<li>钱都给了，费什么话</li>
+				<li>亲，还没有付款哦</li>
+				<li>滚蛋</li>
+
+			</ul>
+
+
+		</div>
+
+</body>
+</html>
+<script>
+	//方法一jQuery方法
+
+/*	$(function(){
+		//alert($);
+		$("#options li").click(function(){
+			$("#options li").removeClass("current");
+			$(this).toggleClass("current");
+			//var m = $("#options li").index(this);
+			$("#cards li").removeClass("current");
+			//$("#cards li:eq("+ m +")").addClass("current");
+
+		$("#cards li:eq("+ $("#options li").index(this) +")").addClass("current");
+		});
+
+
+
+
+	});*/
+
+
+
+	//方法二
+/*
+	var options = document.getElementById("options");
+	var options_li = options.getElementsByTagName("li");
+
+	var cards = document.getElementById("cards");
+	var cards_li = cards.getElementsByTagName("li");
+
+	for(i=0; i<options_li.length; i++){
+		options_li[i].index = i;
+
+		options_li[i].onclick =function(){
+
+			for(i=0; i<options_li.length;i++){
+				options_li[i].className = "";
+				cards_li[i].className = "";
+
+			}
+
+			this.className = "current";
+
+			cards_li[this.index].className = "current";
+
+
+		}
+
+
+	}*/
+
+
+//方法三
+	var options = document.getElementById("options");
+	var options_li = options.getElementsByTagName("li");
+
+	var cards = document.getElementById("cards");
+	var cards_li = cards.getElementsByTagName("li");
+
+	for(i=0; i<options_li.length; i++){
+		//options_li[i].index = i;
+		(function(a){
+			options_li[a].onclick =function(){
+
+			for(i=0; i<options_li.length;i++){
+				options_li[i].className = "";
+				cards_li[i].className = "";
+
+			}
+
+			this.className = "current";
+
+			cards_li[a].className = "current";
+
+
+		}
+
+
+	
+
+		})(i)
+		
+	}
+
+
+</script>
