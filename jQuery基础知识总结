@@ -97,5 +97,200 @@ slideToggle()相当于上面2个结合体
 .live("click",function(){  });
 .on("click",function(){  });最常用的
 .one("click",function(){  });一次性的点击事件
-、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
 
+	$(".b3").on("click" ,function(){
+			$(".b2").off("click"); //.off();取消事件
+		});
+	//trigger();方法触发被选中元素的指定类型
+		$(".b4").click(function(){
+			$(".b2").trigger("click");//触发b2的点击事件.trigger("click")
+
+		});
+		//上传文件经常用到此
+		$(".b5").click(function(){
+
+			$("input").trigger("click"); 
+		});
+		
+		
+		111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+		
+		//$("选择器").hover(infunction,outfunction);   *****************************
+		$("li").hover(function(){
+			$(this).css("background","red");
+		},function(){
+			$("li").css("background","#fff");
+		});
+	
+		
+		$("p").toggle(//点击时，让三个背景图轮流切换
+		  function(){
+		  $("body").css("background-color","green");},
+		  function(){
+		  $("body").css("background-color","red");},
+		  function(){
+		  $("body").css("background-color","yellow");}
+		);
+		
+		
+		
+11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111	
+内部前添加
+$("ul").prepend("<li>"+value+"</li>");
+$("<li>"+value+"</li>").prependTo("ul");		
+
+内部后添加
+$("ul").append("<li>"+value+"</li>");
+$("<li>"+value+"</li>").appendTo("ul");
+
+同级前添加
+$(".yangshi").before("<li>"+value+"</li>");*/
+$("<li>"+value+"</li>").insertBefore($(".yangshi"));
+
+同级后添加
+$("<li>"+value+"</li>").insertAfter($(".yangshi"));
+$(".yangshi").after("<li>"+value+"</li>");
+、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+
+//获取div 并添加一个外包裹
+$("div").wrap(function(){
+	return "<a href='http://www.baidu.com'></a>";
+
+});
+
+//获取li并添加一个内包裹
+$("li").wrapInner(function(){
+	return "<a href='http://www.baidu.com'></a>";
+
+});
+
+//获取b标签  替换成i标签
+//replaceWith  用指定的html内容或者元素替换被选元素
+$("b").replaceWith(function(){
+	return "<i>"+$(this).html()+"</i>";
+
+});
+
+、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+		$("ul li").click(function(){
+
+			$(this).addClass("yangshi").siblings().removeClass("yangshi");//为当前元素加样式，其余兄弟元素去掉样式
+
+		});
+		$("button:eq(0)").click(function(){
+			$(".yangshi").remove();//带类yangshi的元素删除
+
+		});
+		$("button:eq(1)").click(function(){
+			//$(".yangshi").empty(); //清空选中的里面的内容
+
+		$("ul").empty();//清空所有，带标签一块清
+		});
+
+
+、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、。。。。。。。。。。。。
+*********************************each遍历******************************************
+	$(function(){
+/*		var arr = [1,2,3,4,5,6,7,8,9,0];
+		$.each(arr,function(){
+			console.log(this);
+			alert(this);
+		});*/
+
+	//delay() 方法对队列中的下一项执行设置延迟
+	//fadeOut 使用淡出的效果来隐藏被选元素 加入该元素是隐藏的
+	$(".yangshi").click(function(){
+		i = 0;
+	/*	$("li").each(function(){
+			$(this).css("background","orange").delay(i*200).fadeOut(1500);
+			i++;
+		});
+*/
+		$.each($("li"),function(){
+
+			$(this).css("background","orange").delay(i*200).fadeOut(1500);
+			i++;
+		});
+	});
+
+	
+	*****************************轮播图案例（大图和小图都有）**************************
+	
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片切换</title>
+	<script src="./jquery-1.8.2.min.js" type="text/javascript"></script>
+	<style>
+		.small img{
+			border:2px solid transparent;
+		}
+	</style>
+</head>
+<body>
+	<div class="big"><img src="images/1.jpg" alt="" width="500px"></div>
+	<div class="small">
+		<img src="images/1.jpg" alt="" width="120px">
+		<img src="images/2.jpg" alt="" width="120px">
+		<img src="images/3.jpg" alt="" width="120px">
+		<img src="images/4.jpg" alt="" width="120px">
+	</div>
+
+
+
+
+</body>
+</html>
+<script>
+	$(function(){
+		i=0;
+		//alert($)
+		//移入和移出小图发生的一系列事件
+		$(".small img").mouseover(function(){
+
+			$(this).css("border","2px solid #00f");
+			src = $(this).attr("src");
+			$(".big img").attr("src",src);
+			//num = $(this).index();
+			J = $(".small img").index(this);//跟上面的只能一种得到索引的方式
+
+
+			clearInterval(timmer);
+		}).mouseout(function(){
+			$(this).css("borderColor","transparent");
+			i = J+1;
+			//console.log(i);
+			gun();
+			
+		});
+
+
+		//小图和大图动起来
+			
+			function gun(){
+			
+			timmer = setInterval(function(){
+							//($(".small img").length-1)
+				if(i==4){
+					i=0;
+				}
+
+				src1 = $(".small img:eq("+i+")").attr("src");
+				$(".big img").attr("src",src1);
+				$(".small img").css("borderColor","transparent");
+				$(".small img:eq("+i+")").css("border","2px solid red");
+
+				i++;
+	
+			},500);
+
+			}
+			gun();
+
+
+
+
+
+	});
+</script>
