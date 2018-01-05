@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery轮播图</title>
+	<script type="text/javascript" src="./jquery-1.8.2.min.js"></script>
+	<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+		div{
+			margin:0 auto;
+			width:900px;
+			height:500px;
+			overflow:hidden;  
+			position:relative;
+		}
+		/* ul{
+			width:6300px;
+		} */
+		ul,ol{
+			list-style:none;
+			position:absolute;
+		}
+		ul li img{
+			width:900px;
+			height:500px;
+		}
+		ul li {
+			float:left;
+			width:900px
+			height:500px;
+		}
+		ol{
+			width:900px;
+			/* border:1px solid #ccc; */
+			text-align:center;
+			bottom:5px;
+
+		}
+		ol li{
+			font-size:16px;
+			height:25px;
+			width:25px;
+			border-radius:20px;
+			background:#ccc;
+			line-height:25px;
+			text-align:center;
+			display:inline-block;
+			margin:0 10px;
+			opacity:0.7;
+			/* float:left; */
+		}
+		.cc{
+			color:#ccc;
+		}
+
+	</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li><a href="#"><img src="img/1.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/2.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/3.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/4.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/5.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/6.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/7.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/8.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/9.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/9.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/9.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/9.jpg" alt=""></a></li>
+	</ul>
+	</div>
+</body>
+</html>
+<script>
+	$(function(){
+		//打印出图片下方的ol列表和数字
+		$("div").append("<ol></ol>");
+		for(i=1; i<=$('ul li').length; i++){
+			$("ol").append("<li>"+i+"</li>");
+		}
+
+
+		//横向排列时，计算出ul的总长度
+		//console.log($("ul li").width());
+		//$('ul li').length
+		//900*700
+		ulWidth = $("ul li").width() * $('ul li').length+"px";
+		$('ul').css("width",ulWidth);//把宽度给ul
+		//console.log(ulWidth);//6300
+
+		//移入移出下面数字时，数字发生的一系列变化
+		$("ol li").mouseover(function(){
+			//$(this).index();
+			$("ol li").removeClass("cc");
+			$(this).addClass("cc");
+			//0 1x900 2x900 3x900 4x900
+			//i*900
+			//j = $("ol li").index("cc"); //-1
+			j = $(".cc").index();
+			//console.log(j);
+			ulLeft = j * $("ul li").width();
+			console.log(ulLeft);
+			console.log(ulLeft);
+			//$("ul").css("left",-ulLeft);
+			$("ul").animate({"left":-ulLeft},500);
+			clearInterval(timmer);
+			m = $(this).index()+1;
+
+		});
+		$('ol li').eq(0).addClass("cc");
+
+		m=1;
+		timmer = setInterval(timeSet,1000);
+		function timeSet(){
+			if(m==$("ul li").length){
+				m=0;
+				}
+			$('ol li').removeClass("cc");
+			$('ol li').eq(m).addClass("cc");
+			console.log(m);
+			ulLeft = m * $("ul li").width();
+			$("ul").animate({"left":-ulLeft},500);
+			
+			m++;
+		}
+
+
+		//鼠标移到大图上的时候一系列变化
+		$("div").mouseover(function(){
+			clearInterval(timmer);
+		}).mouseout(function(){
+			timmer = setInterval(timeSet,1000);
+		});
+
+
+	});
+</script>
