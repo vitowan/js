@@ -1,0 +1,101 @@
+三种入口方式：
+1. jQuery的简洁引入方式 $(function(){ });
+//标准引入方式
+2.$(document).ready(function(){
+		alert($);
+	});
+3. js引入方式
+window.onload = function(){
+		alert($);
+	}
+//////////////////////////////////////////////////////////////////////////////
+
+		$("a").html("我确实是百度了啦啦啦啦");//相当于innerHTML
+		$("a").addClass("cc"); //加上类cc
+		$("a").removeClass("cc");移除类cc
+		$("a").toggleClass("cc");//有就移除cc，没有就加上，常用于点击自己循环消失出现
+		$("a").attr("title","你猜我是谁");//更改属性值
+		$("a").removeAttr("title");//移除属性
+    
+    、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+  //全选，不选，和反选的案例  
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全选，全不选，反选</title>
+	<script src="jquery-1.8.2.min.js"></script>
+</head>
+<body>
+	<input type="checkbox">选吧<br>
+	<input type="checkbox">选吧<br>
+	<input type="checkbox">选吧<br>
+	<input type="checkbox">选吧<br>
+	<button>全选</button>
+	<button>不选</button>
+	<button>反选</button>
+</body>
+</html>
+<script>
+	$(function(){
+	/*	$("button:eq(0)").click(function(){
+			$("input").attr("checked",true);
+		});
+		$("button:eq(1)").click(function(){
+			$(":checkbox").attr("checked",false);
+
+		});
+		$("button:eq(2)").click(function(){
+			var list = $(":checked")
+			$("input:checkbox").attr("checked",true);
+			list.attr("checked",false);
+		});
+*/
+		$("button").click(function(){
+			switch($(this).html() ){
+					case "全选":
+					$("input").attr("checked",true);
+					break;
+					case "不选":
+					$(":checkbox").attr("checked",false);
+					break;
+
+					case "反选":
+					//1.首先获取已经选中的
+					var list= $(":input:checked");
+					//2.把所有的全部选中
+					$("input:checkbox").attr("checked",true);
+					//3.第一步选中的 改为不选中
+					list.attr("checked",false);
+				}
+		});
+	});
+</script>
+
+、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+
+$(selector).hide(speed,callback);
+$(selector).show(speed,callback);
+$(selector).toggle(speed,callback);相当于上面2个的结合体
+
+.fadeIn();
+.fadeOut();
+.fadeToggle();相当于上面2个结合体
+
+slideDown()
+slideUp()
+slideToggle()相当于上面2个结合体
+
+、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+.val();相当于js里面的.value;
+.html();相当于js里面的 .innerHTML;
+.text();相当于js的.innerTEXT
+
+、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+常用的事件绑定：.click(function(){   });
+.bind("click",function(){  });
+.live("click",function(){  });
+.on("click",function(){  });最常用的
+.one("click",function(){  });一次性的点击事件
+、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+
