@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQ的文档操作--each</title>
+	<script src="./jquery-1.8.2.min.js" type="text/javascript"></script>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		ul{
+			list-style:none;
+			position:absolute;
+			top:450px;
+
+		}
+		ul li{
+			float:left;
+			margin-left:30px;
+		}
+		ul li img{
+			border:2px solid transparent;
+		}
+		.small{
+			margin:30px;
+			border:1px solid #ccc;
+			position:absolute;
+			width:400px;
+			height:400px;
+		}
+		.big{
+			width:400px;
+			height:400px;
+			overflow:hidden;
+			position:absolute;
+			top:30px;
+			left:450px;
+			border:1px solid #ccc;
+			 display:none; 
+		}
+		.big img{
+			position:absolute;
+		}
+		.move{
+			background:url(image/yy.png);
+			width:150px;
+			height:150px;
+			display:none;
+			position:absolute;
+			left:0;
+			top:0;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="small">
+		<img src="image/1.jpg" alt="" width="400px">
+		<div class="move"></div>
+	</div>
+	<div class="big"><img src="image/1.jpg" alt="" ></div>
+	<ul class="list">
+		<li><img src="image/1.jpg" alt="" width="100px"></li>
+		<li><img src="image/3.jpg" alt="" width="100px"></li>
+	</ul>
+
+</body>
+</html>
+<script>
+	$(function(){
+		//移入2张小图时发生的以一系列变化
+		$(".list li img").mouseover(function(){
+			$(".list li img").css("borderColor","#fff");
+			$(this).css("borderColor","#f00");
+			src = $(this).attr("src");
+			$(".big img").attr("src",src);
+			$(".small img").attr("src",src);
+
+		});
+
+
+		//移到左侧图上时发生的一系列变化
+		$(".small").mousemove(function(e){
+			$(".big").css("display","block");
+			$(".move").css({"display":"block","cursor":"move"});
+			//console.log($(".move").width());
+			//console.log($(".small img").width());
+			//console.log($(".big").width());
+			//console.log($(".big img").width());
+			moveWidth = $(".small").width()*$(".big").width()/$(".big img").width();
+			moveHeight = $(".small").height()*$(".big").height()/$(".big img").height();
+			//console.log(moveWidth);
+			//console.log(moveHeight);
+			//设置遮罩层的标准宽高
+			$(".move").css({"width": moveWidth,"height":moveHeight});
+
+			//console.log($(".small img") .offset().left);
+			//console.log($(".small img") .offset().top);
+		
+			//鼠标在遮罩层中间时，遮罩层到small边框的位置
+			e = e || event;
+			moveleft = e.pageX - $(".small") .offset().left - (moveWidth/2) ;
+			movetop = e.pageY - $(".small") .offset().top -(moveHeight/2);
+			//console.log($(".small") .offset()); //相对浏览器的左边和上面距离
+			console.dir($(".small") .offset());
+			
+			//console.log(moveleft);
+			//console.log(movetop);
+
+			//设置遮罩层的边缘不能超过框
+			if(moveleft<0){
+				moveleft = 0;
+			}
+			if(movetop<0){
+				movetop = 0;
+			}
+
+			if(moveleft>$(".small").width() - moveWidth){
+				moveleft=$(".small").width() - moveWidth;
+			}
+			if(movetop>$(".small").height() - moveHeight){
+				movetop=$(".small").height() - moveHeight;
+			}
+
+			$(".move").css({"left": (moveleft+'px'),"top": (movetop+'px')});
+
+			//右边大图此时发生的变化
+			 r = $(".big img").width()/$(".big").width();
+			 $(".big img").css({"left": -r*moveleft,"top": -r*movetop});
+
+		//左侧图上移除时发生的一系列变化
+
+		}).mouseout(function(){
+			$(".big").css("display","none");
+			$(".move").css("display","none");
+
+		});
+
+
+
+
+
+
+
+	});
+
+</script>
