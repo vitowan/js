@@ -44,3 +44,48 @@
 		alert("我是text文本");
 	}
 </script>
+
+。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
+
+*******************confirm()的应用
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!-- <a href="demo.php" onclick="javascript:return del()">删 除</a> -->  (方法一)
+<a href="demo.php" onclick=del()>删 除</a>                               (方法二)
+</body>
+</html>
+<SCRIPT LANGUAGE=javascript> 
+function del() { 
+ var msg = "您真的确定要删除吗？\n\n请确认！"; 
+ if (confirm(msg)==true){ 
+  return true; 
+ }else{ 
+  return false; 
+ } 
+} 
+</SCRIPT>
+
+<a href="javascript:if(confirm('确实要删除吗?'))location='demo.php'">删除</a>  (方法三)
+
+	
+************input按钮使用confirm的方法	
+<input type="button" value='点我' id='a' onclick="if(confirm('aaa')){location='demo.php'}" > （方法一）
+	 <input type="button" value='点我' id='a' onclick="javascript:if(confirm('确认删除吗'))location='demo.php'" >  （方法二）
+
+<input type="button" value='点我' id='a' onclick=del() >         （方法三）
+<script>
+function del() { 
+ var msg = "您真的确定要删除吗？\n\n请确认！"; 
+ if (confirm(msg)==true){ 
+  location='demo.php'
+ }else{ 
+  return false; 
+ } 
+} 
+</script>
