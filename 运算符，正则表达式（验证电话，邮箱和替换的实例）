@@ -163,3 +163,11 @@ alert(time);
 
 </script>
 </html>
+
+
+
+判断是否符合正则：
+$preg=/ /;
+$preg.test($str);匹配则返回true，否者false
+
+
