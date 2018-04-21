@@ -121,6 +121,8 @@ slideToggle()相当于上面2个结合体
 ****************如果trigger想触发a点击事件，且又需要a跳转，则需要在a里面对文字加span包起来。如果不需要跳转不用包。
 
 1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+
+*****************移入移出触发联动
 		
 		//$("选择器").hover(infunction,outfunction);   *****************************
 		$("li").hover(function(){
@@ -138,6 +140,26 @@ slideToggle()相当于上面2个结合体
 		  function(){
 		  $("body").css("background-color","yellow");}
 		);
+		
+		
+		
+		
+		        /*  
+        //鼠标的移入移出  
+        $(".header").mouseover(function (){  
+            $(".content").show();  
+        }).mouseout(function (){  
+            $(".content").hide();  
+        });  
+        */  
+        /*  
+        //合成事件 hover()  
+        $(".header").hover(function (){  
+            $(".content").show();  
+        },function (){  
+            $(".content").hide();  
+        });  
+        */ 
 		
 		
 		
